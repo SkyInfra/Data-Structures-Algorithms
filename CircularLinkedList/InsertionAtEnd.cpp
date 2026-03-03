@@ -45,8 +45,8 @@ public:
             cout << "node is added to list " << endl;
             return;
         }
-        newNode->next = head;
         tail->next = newNode;
+         newNode->next = head;
         tail = newNode;
         cout << "Node is added to list " << endl;
     }
