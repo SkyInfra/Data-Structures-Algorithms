@@ -58,16 +58,12 @@ public:
             return;
         }
         Node *temp = head;
-        while (true)
+        while (temp->next != head)
         {
             cout << temp->value << "<==> ";
             temp = temp->next;
-            if (temp == head)
-            {
-                break;
-            }
         }
-        cout << "back to head again " << endl;
+        cout << temp->value << endl;
     }
 };
 int main()
