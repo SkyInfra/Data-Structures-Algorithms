@@ -41,6 +41,12 @@ public:
             cout << "List is empty "<<endl;
             return;
         }
+        if(head == tail){
+            delete head;
+            head = tail = NULL;
+            cout << "Node is deleted from list  " << endl;
+            return;
+        }
         Node* temp = head;
         while(temp->next != tail){
             temp = temp -> next;
