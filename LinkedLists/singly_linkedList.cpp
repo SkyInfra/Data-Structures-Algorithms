@@ -248,6 +248,21 @@ public:
             }
         }
     }
+        // middle Node 
+    void middle_node(){
+    if (head == NULL)
+    {
+        cout << "List is empty " << endl;
+        return;
+    }
+    Node* fast = head;
+    Node* slow = head;
+    while (fast != NULL && fast->next != NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    cout << "Middle Node Value: " << slow->value << endl;
+}
 };
 
 int main()
