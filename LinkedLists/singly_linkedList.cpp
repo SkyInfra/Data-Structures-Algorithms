@@ -229,6 +229,25 @@ public:
         cout << "Node is deleted from list " << endl;
         return;
     }
+        // Remove duplicate
+        void remove_Dupicate(){
+        if(head == NULL){
+            cout << "List is empty "<< endl;
+            return;
+        }
+        Node* curr = head -> next ;
+        Node* prev = head;
+        while(curr->next != NULL){
+            if(prev->value == curr->value){
+                prev->next = curr->next ;
+                delete curr;
+                curr = prev->next;
+            }else{
+                prev = curr;
+                curr->next ;
+            }
+        }
+    }
 };
 
 int main()
