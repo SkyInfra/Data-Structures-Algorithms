@@ -280,6 +280,15 @@ public:
         }
         return prev;
     }
+    // print LinkedList in Reverse Order 
+    void printlist_In_reverse_order(Node* head){
+        if(head == NULL){
+            cout << "List is empty" << endl;
+            return;
+        }
+        printlist_In_reverse_order(head->next);
+        cout << head->value << " <==>" ;
+    }
 };
 
 int main()
