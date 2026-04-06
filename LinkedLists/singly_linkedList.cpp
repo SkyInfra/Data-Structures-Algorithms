@@ -263,6 +263,23 @@ public:
     }
     cout << "Middle Node Value: " << slow->value << endl;
 }
+    // Reverse List 
+    Node* reverse_List(){
+        if(head == NULL){
+            cout << "List is empty " << endl;
+            return;
+        }
+        Node* prev = NULL;
+        Node* curr = head ;
+        node* far = NULL;
+        while(curr != NULL){
+            far = curr->next ;
+            curr->next = prev ;
+            curr = prev ;
+            curr = far ;
+        }
+        return prev;
+    }
 };
 
 int main()
