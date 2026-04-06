@@ -52,7 +52,7 @@ class LinkedList{
         }
         Node* del = temp->next ;
         temp->next = del->next ;
-        if(del == tail){
+        if(del->next  == NULL){
             tail = temp;
         }
         delete del;
