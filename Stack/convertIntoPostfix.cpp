@@ -2,7 +2,18 @@
 #include <stack>
 using namespace std;
 
+int precedence(char ch){
+    if(ch == '+' || ch == '-') return 1;
+    if(ch == '*' || ch == '/') return 2;
+    if(ch == '^') return 3;
+    return 0;
+}
 
+bool isOperand(char ch){
+    return (ch >= 'A' && ch <= 'Z') ||
+           (ch >= 'a' && ch <= 'z') ||
+           (ch >= '0' && ch <= '9');
+}
 
 string convertIntoPostfix(string exp){
     string res = "";
