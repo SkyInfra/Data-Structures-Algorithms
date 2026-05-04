@@ -42,3 +42,53 @@ public:
             return search_recursive(root->right, v);
         }
     }
+// Iterative Search
+    bool search_iterative(Node* root, int v){
+        Node* temp = root;
+
+        while(temp != NULL){
+            if(temp->value == v){
+                return true;
+            }
+            else if(v < temp->value){
+                temp = temp->left;
+            }
+            else{
+                temp = temp->right;
+            }
+        }
+
+        return false;
+    }
+
+    // Wrappers
+    bool searchR(int v){
+        return search_recursive(root, v);
+    }
+
+    bool searchI(int v){
+        return search_iterative(root, v);
+    }
+};
+
+int main(){
+    Tree t;
+
+    int key;
+    cout << "Enter value to search: ";
+    cin >> key;
+
+    if(t.searchR(key)){
+        cout << "Found (Recursive)\n";
+    }else{
+        cout << "Not Found (Recursive)\n";
+    }
+
+    if(t.searchI(key)){
+        cout << "Found (Iterative)\n";
+    }else{
+        cout << "Not Found (Iterative)\n";
+    }
+
+    return 0;
+}
