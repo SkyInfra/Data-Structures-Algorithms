@@ -109,3 +109,111 @@ public:
     }
         return root;
     }
+ void Max_Value(Node *root)
+    {
+        if (root == NULL)
+        {
+            cout << "Tree is empty";
+            return;
+        }
+
+        Node *temp = root;
+
+        while (temp->right != NULL)
+        {
+            temp = temp->right;
+        }
+
+        cout << "Max Value: " << temp->value << endl;
+    }
+
+    void Min_Value(Node *root)
+    {
+        if (root == NULL)
+        {
+            cout << "Tree is empty";
+            return;
+        }
+
+        Node *temp = root;
+
+        while (temp->left != NULL)
+        {
+            temp = temp->left;
+        }
+
+        cout << "Min Value: " << temp->value << endl;
+    }
+    void add_Node(int v){
+
+    Node* newNode = new Node(v);
+
+    if(root == NULL){
+        root = newNode;
+        return;
+    }
+
+    Node* temp = root;
+
+    while(true){
+
+        if(v < temp->value){
+
+            if(temp->left == NULL){
+                temp->left = newNode;
+                break;
+            }
+            else{
+                temp = temp->left;
+            }
+
+        }
+        else{
+
+            if(temp->right == NULL){
+                temp->right = newNode;
+                break;
+            }
+            else{
+                temp = temp->right;
+            }
+
+        }
+
+    }
+
+    cout << "Value added to tree" << endl;
+}
+    void display()
+    {
+        cout << "Inorder: ";
+        inOrder(root);
+        cout << endl;
+
+        cout << "Preorder: ";
+        preOrder(root);
+        cout << endl;
+
+        cout << "Postorder: ";
+        postOrder(root);
+        cout << endl;
+    }
+};
+
+int main()
+{
+
+    Tree t;
+
+    t.insert(10);
+    t.insert(5);
+    t.insert(20);
+    t.insert(3);
+    t.insert(7);
+
+    t.display();
+
+    
+
+    return 0;
+}
