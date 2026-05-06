@@ -77,3 +77,21 @@ public:
             temp->tail = newNode;
         }
     }
+ void display() {
+        Node* temp = head;
+
+        while(temp != NULL) {
+            cout << temp->value << " -> ";
+
+            Edge* newEdge = temp->head;
+
+            while(newEdge != NULL) {
+                cout << newEdge->value << " ";
+                newEdge = newEdge->next;
+            }
+
+            cout << endl;
+            temp = temp->next;
+        }
+    }
+};
