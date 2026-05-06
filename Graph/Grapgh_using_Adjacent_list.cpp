@@ -23,3 +23,57 @@ struct Node {
         next = NULL;
     }
 };
+class Graph {
+    Node* head;
+    Node* tail;
+
+public:
+    Graph() {
+        head = tail = NULL;
+    }
+
+    void insert_value(int v) {
+        Node* newNode = new Node(v);
+
+        if(head == NULL) {
+            head = tail = newNode;
+        }
+        else {
+            tail->next = newNode;
+            tail = newNode;
+        }
+    }
+
+    Node* check_vertex(int v) {
+        Node* temp = head;
+
+        while(temp != NULL && temp->value != v) {
+            temp = temp->next;
+        }
+
+        if(temp == NULL) {
+            cout << "Not Found\n";
+            return NULL;
+        }
+
+        return temp;
+    }
+
+    void add_edge(int u, int v) {
+        Node* temp = check_vertex(u);
+
+        if(temp == NULL) {
+            cout << "No Source Found\n";
+            return;
+        }
+
+        Edge* newNode = new Edge(v);
+
+        if(temp->head == NULL) {
+            temp->head = temp->tail = newNode;
+        }
+        else {
+            temp->tail->next = newNode;
+            temp->tail = newNode;
+        }
+    }
