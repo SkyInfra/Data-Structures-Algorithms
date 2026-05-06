@@ -95,3 +95,19 @@ public:
         }
     }
 };
+int main() {
+    Graph g;
+
+    g.insert_value(1);
+    g.insert_value(2);
+    g.insert_value(3);
+    g.insert_value(4);
+
+    g.add_edge(1,2);
+    g.add_edge(1,3);
+    g.add_edge(2,4);
+
+    g.display();
+
+    return 0;
+}
